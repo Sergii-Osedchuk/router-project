@@ -1,30 +1,13 @@
-import { Link } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
+import EventsList from '../components/EventsList';
 
-const EVENT_LIST = [{
-    id: 'r1',
-    title: 'event Moto'
-  },
-  {
-    id: 'r2',
-    title: 'event Car'
-  },
-  {
-    id: 'r3',
-    title: 'event Ship'
-  },
-];
+function EventsPage() {
+  const events = useLoaderData();
 
-export default function EventsPage() {
   return (
-    <>
-      <h1>EventsPage</h1>
-      <ul>
-        {EVENT_LIST.map((event) => <li key={event.id}>
-          <Link to={event.id}>{event.title}</Link>
-        </li>
-        )}
-      </ul>
-    </>
     
-  )
+    <EventsList events={events} />
+  );
 }
+
+export default EventsPage;
