@@ -11,8 +11,8 @@ export async function action({request, params}) {
   const eventData = {
     title: data.get('title'),
     image: data.get('image'),
-    date: data.date('date'),
-    description: data.description('description')
+    date: data.get('date'),
+    description: data.get('description'),
   };
 
   const response = await fetch('http://localhost:8080/events', {
